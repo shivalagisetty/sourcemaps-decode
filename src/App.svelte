@@ -131,10 +131,10 @@
     border-radius: 4px;
   }
   
-  .mapping {
+  /* .mapping {
     font-family: monospace;
     margin: 0.25em 0;
-  }
+  } */
   
   .error {
     color: red;
