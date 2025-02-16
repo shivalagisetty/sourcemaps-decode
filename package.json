@@ -1,0 +1,22 @@
+{
+  "name": "sourcemaps-decode",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "svelte": "^5.19.6",
+    "vite": "^6.1.0"
+  },
+  "dependencies": {
+    "@skeletonlabs/skeleton": "^2.11.0",
+    "source-map": "^0.7.4",
+    "source-map-js": "^1.2.1",
+    "svelte-highlight": "^7.8.2"
+  }
+}
