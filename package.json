@@ -3,10 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://slagisetty.github.io/sourcemaps-decode/",
+  "homepage": "https://shivalagisetty.github.io/sourcemaps-decode/",
   "scripts": {
     "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d dist",
+    "deploy" : "gh-pages -d dist --repo https://github.com/shivalagisetty/sourcemaps-decode.git",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
