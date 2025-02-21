@@ -4,11 +4,13 @@
   import Highlight, { LineNumbers } from "svelte-highlight";
   import { javascript } from 'svelte-highlight/languages';
   import atomOneDark from "svelte-highlight/styles/atom-one-dark";
+  import Mappings from './lib/Mappings.svelte';
 
   let files;
   let decodedContent = null;
   let isLoading = false;
   let error = null;
+  let showMappings = false;
 
   async function parseSourceMap(content) {
     try {
@@ -81,7 +83,6 @@
         <details>
           <summary>{source}</summary>
           <pre>
-
             <Highlight let:highlighted language={javascript} code={decodedContent.sourcesContent?.[i] || 'Source content not available'}>
               <LineNumbers {highlighted} />
             </Highlight>
@@ -89,21 +90,13 @@
         </details>
       {/each}
 
-      <!-- <h3>Mappings:</h3>
-      <div class="mappings">
-        {#each decodedContent.mappings.slice(0, 100) as mapping}
-          <div class="mapping">
-            Original: {mapping.source}:{mapping.originalLine}:{mapping.originalColumn}
-            {#if mapping.name}
-              (${mapping.name})
-            {/if}
-            → Generated: {mapping.generatedLine}:{mapping.generatedColumn}
-          </div>
-        {/each}
-        {#if decodedContent.mappings.length > 100}
-          <p>... and {decodedContent.mappings.length - 100} more mappings</p>
-        {/if}
-      </div> -->
+     {#if showMappings}
+      <Mappings {decodedContent} />
+      {:else}
+      <button onclick={() => showMappings = true}>
+        Show mappings
+      </button>
+      {/if}
     </div>
   {/if}
 </main>
@@ -131,10 +124,6 @@
     border-radius: 4px;
   }
   
-  /* .mapping {
-    font-family: monospace;
-    margin: 0.25em 0;
-  } */
   
   .error {
     color: red;
